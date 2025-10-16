@@ -38,10 +38,19 @@ class profile_hostbased_ssh::target (
   include profile_hostbased_ssh::known_hosts
   include profile_hostbased_ssh::shosts_equiv
 
+  if 'root' in $users {
+    include profile_hostbased_ssh::root_shosts
+    $_sshd_custom_config = $sshd_custom_config + {
+      'IgnoreRhosts' => 'no',
+    }
+  } else {
+    $_sshd_custom_config = $sshd_custom_config
+  }
+
   ::sshd::allow_from { 'sshd allow hostbased ssh':
     hostlist                => $sshd_match_nodelist,
     users                   => $users,
     groups                  => $groups,
-    additional_match_params => $sshd_custom_config,
+    additional_match_params => $_sshd_custom_config,
   }
 }
