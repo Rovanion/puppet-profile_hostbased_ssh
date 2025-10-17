@@ -6,7 +6,7 @@
 #
 # @param ssh_global_config
 #   Additional ssh_conf params (suitable for ssh_config global config...
-#   although it will end up in a "Host *" block anyway) 
+#   although it will end up in a "Host *" block anyway)
 #
 # @param ssh_match_config
 #   Additional ssh_conf params (suitable for ssh_config match block)
@@ -20,7 +20,7 @@
 class profile_hostbased_ssh::source (
   Hash[String, String] $ssh_global_config,
   Hash[String, String] $ssh_match_config,
-  String $host_match_pattern,
+  String               $host_match_pattern,
 ) {
   include profile_hostbased_ssh::known_hosts
 
