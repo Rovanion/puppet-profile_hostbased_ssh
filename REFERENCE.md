@@ -138,11 +138,11 @@ include profile_hostbased_ssh::source
 
 The following parameters are available in the `profile_hostbased_ssh::source` class:
 
-* [`global_custom_config`](#-profile_hostbased_ssh--source--global_custom_config)
+* [`ssh_global_config`](#-profile_hostbased_ssh--source--ssh_global_config)
 * [`host_match_custom_config`](#-profile_hostbased_ssh--source--host_match_custom_config)
 * [`host_match_pattern`](#-profile_hostbased_ssh--source--host_match_pattern)
 
-##### <a name="-profile_hostbased_ssh--source--global_custom_config"></a>`global_custom_config`
+##### <a name="-profile_hostbased_ssh--source--ssh_global_config"></a>`ssh_global_config`
 
 Data type: `Hash`
 

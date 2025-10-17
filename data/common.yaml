@@ -7,7 +7,7 @@ profile_hostbased_ssh::shosts_equiv::shosts_equiv_file: "/etc/ssh/shosts.equiv"
 
 profile_hostbased_ssh::root_shosts::root_shosts_path: "/root/.shosts"
 
-profile_hostbased_ssh::source::global_custom_config:
+profile_hostbased_ssh::source::ssh_global_config:
   EnableSSHKeysign: "yes"
 profile_hostbased_ssh::source::host_match_custom_config:
   CheckHostIP: "no"

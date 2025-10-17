@@ -4,7 +4,7 @@
 #
 # Borrows from ncsa/puppet-sshd
 #
-# @param global_custom_config
+# @param ssh_global_config
 #   Additional ssh_conf params (suitable for ssh_config global config...
 #   although it will end up in a "Host *" block anyway) 
 #
@@ -18,7 +18,7 @@
 # @example
 #   include profile_hostbased_ssh::source
 class profile_hostbased_ssh::source (
-  Hash   $global_custom_config,
+  Hash   $ssh_global_config,
   Hash   $host_match_custom_config,
   String $host_match_pattern,
 ) {
@@ -29,7 +29,7 @@ class profile_hostbased_ssh::source (
   }
 
   # add global custom config to ssh_config
-  $global_custom_config.each | $key, $val | {
+  $ssh_global_config.each | $key, $val | {
     ssh_config {
       $key :
         value => $val,
