@@ -17,6 +17,8 @@ profile_hostbased_ssh::source::host_match_custom_config:
   StrictHostKeyChecking: "yes"
   UserKnownHostsFile: "/dev/null"
 
+profile_hostbased_ssh::target::sshd_global_config:
+  IgnoreUserKnownHosts: 'yes'
 profile_hostbased_ssh::target::sshd_custom_config:
   AuthenticationMethods: "hostbased"
   GSSAPIAuthentication: "no"

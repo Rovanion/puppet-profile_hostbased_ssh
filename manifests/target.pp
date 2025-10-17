@@ -32,11 +32,20 @@
 class profile_hostbased_ssh::target (
   Array[String, 1] $sshd_match_nodelist,
   Hash             $sshd_custom_config,
+  Hash[String, String] $sshd_global_config,
   Array[String]    $groups,
   Array[String]    $users,
 ) {
   include profile_hostbased_ssh::known_hosts
   include profile_hostbased_ssh::shosts_equiv
+
+  $sshd_global_config.each | $key, $val | {
+    sshd_config {
+      $key:
+        ensure => present,
+        value  => $val;
+    }
+  }
 
   if 'root' in $users {
     include profile_hostbased_ssh::root_shosts
