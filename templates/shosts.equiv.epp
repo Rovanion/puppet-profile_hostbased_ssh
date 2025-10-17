@@ -2,7 +2,7 @@
 <% $no_ips = $profile_hostbased_ssh::target::sshd_global_config['UseDNS'] != 'yes' -%>
 <% $profile_hostbased_ssh::known_hosts::hosts_data.each | $host_set, $data | { -%>
 # Hosts in <%= $host_set %>
-<% $domain = $data[domain] %>
+<% $domain = $data[domain] -%>
 <% $data[hosts].each | $host, $ip | { -%>
 <%= $host %>
 <% if $domain { -%>
@@ -12,4 +12,5 @@
 <%= $ip %>
 <% } -%>
 <% } -%>
+
 <% } -%>
