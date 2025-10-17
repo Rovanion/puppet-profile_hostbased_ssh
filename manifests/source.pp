@@ -8,7 +8,7 @@
 #   Additional ssh_conf params (suitable for ssh_config global config...
 #   although it will end up in a "Host *" block anyway) 
 #
-# @param host_match_custom_config
+# @param ssh_match_config
 #   Additional ssh_conf params (suitable for ssh_config match block)
 #
 # @param host_match_pattern
@@ -19,7 +19,7 @@
 #   include profile_hostbased_ssh::source
 class profile_hostbased_ssh::source (
   Hash   $ssh_global_config,
-  Hash   $host_match_custom_config,
+  Hash   $ssh_match_config,
   String $host_match_pattern,
 ) {
   include profile_hostbased_ssh::known_hosts
@@ -44,7 +44,7 @@ class profile_hostbased_ssh::source (
     $config_match_defaults = $config_defaults + { 'host' => $host_match_pattern }
 
     # add host match block with custom config to ssh_config
-    $host_match_custom_config.each | $key, $val | {
+    $ssh_match_config.each | $key, $val | {
       ssh_config {
         $key :
           value => $val,
