@@ -18,8 +18,8 @@
 # @example
 #   include profile_hostbased_ssh::source
 class profile_hostbased_ssh::source (
-  Hash   $ssh_global_config,
-  Hash   $ssh_match_config,
+  Hash[String, String] $ssh_global_config,
+  Hash[String, String] $ssh_match_config,
   String $host_match_pattern,
 ) {
   include profile_hostbased_ssh::known_hosts
