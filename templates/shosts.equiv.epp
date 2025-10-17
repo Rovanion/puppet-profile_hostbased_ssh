@@ -1,4 +1,5 @@
 # shosts.equiv: Managed by Puppet
+<% $no_ips = $profile_hostbased_ssh::target::sshd_global_config['UseDNS'] != 'yes' -%>
 <% $profile_hostbased_ssh::known_hosts::hosts_data.each | $host_set, $data | { -%>
 # Hosts in <%= $host_set %>
 <% $domain = $data[domain] %>
@@ -7,6 +8,8 @@
 <% if $domain { -%>
 <%= $host %>.<%= $domain %>
 <% } -%>
+<% if $no_ips { -%>
 <%= $ip %>
+<% } -%>
 <% } -%>
 <% } -%>
