@@ -3,7 +3,9 @@
 <% $domain = $data[domain] %>
 <% $data[hosts].each | $host, $ip | { -%>
 <%= $host %>
+<% if $domain { -%>
 <%= $host %>.<%= $domain %>
+<% } -%>
 <%= $ip %>
 <% } -%>
 <% } -%>
