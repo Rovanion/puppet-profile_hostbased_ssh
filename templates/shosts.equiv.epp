@@ -1,5 +1,6 @@
 # shosts.equiv: Managed by Puppet
 <% $profile_hostbased_ssh::known_hosts::hosts_data.each | $host_set, $data | { -%>
+# Hosts in <%= $host_set %>
 <% $domain = $data[domain] %>
 <% $data[hosts].each | $host, $ip | { -%>
 <%= $host %>
