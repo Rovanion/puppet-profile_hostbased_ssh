@@ -19,7 +19,7 @@ profile_hostbased_ssh::source::host_match_custom_config:
 
 profile_hostbased_ssh::target::sshd_global_config:
   IgnoreUserKnownHosts: 'yes'
-profile_hostbased_ssh::target::sshd_custom_config:
+profile_hostbased_ssh::target::sshd_match_config:
   AuthenticationMethods: "hostbased"
   GSSAPIAuthentication: "no"
   HostbasedAuthentication: "yes"

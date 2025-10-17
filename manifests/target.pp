@@ -12,7 +12,7 @@
 #   Note: This is set to [] by default, but one of `groups` or
 #         `users` must be set.
 #
-# @param sshd_custom_config
+# @param sshd_match_config
 #   Additional sshd_conf params (suitable for sshd_config match block)
 #
 # @param sshd_match_nodelist
@@ -31,7 +31,7 @@
 #   include profile_hostbased_ssh::target
 class profile_hostbased_ssh::target (
   Array[String, 1] $sshd_match_nodelist,
-  Hash             $sshd_custom_config,
+  Hash             $sshd_match_config,
   Hash[String, String] $sshd_global_config,
   Array[String]    $groups,
   Array[String]    $users,
@@ -49,17 +49,17 @@ class profile_hostbased_ssh::target (
 
   if 'root' in $users {
     include profile_hostbased_ssh::root_shosts
-    $_sshd_custom_config = $sshd_custom_config + {
+    $_sshd_match_config = $sshd_match_config + {
       'IgnoreRhosts' => 'no',
     }
   } else {
-    $_sshd_custom_config = $sshd_custom_config
+    $_sshd_match_config = $sshd_match_config
   }
 
   ::sshd::allow_from { 'sshd allow hostbased ssh':
     hostlist                => $sshd_match_nodelist,
     users                   => $users,
     groups                  => $groups,
-    additional_match_params => $_sshd_custom_config,
+    additional_match_params => $_sshd_match_config,
   }
 }

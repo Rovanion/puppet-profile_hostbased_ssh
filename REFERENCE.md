@@ -182,7 +182,7 @@ include profile_hostbased_ssh::target
 The following parameters are available in the `profile_hostbased_ssh::target` class:
 
 * [`groups`](#-profile_hostbased_ssh--target--groups)
-* [`sshd_custom_config`](#-profile_hostbased_ssh--target--sshd_custom_config)
+* [`sshd_match_config`](#-profile_hostbased_ssh--target--sshd_match_config)
 * [`sshd_match_nodelist`](#-profile_hostbased_ssh--target--sshd_match_nodelist)
 * [`users`](#-profile_hostbased_ssh--target--users)
 
@@ -196,7 +196,7 @@ any of the nodes in sshd_match_nodelist.
 Note: This is set to [] by default, but one of `groups` or
       `users` must be set.
 
-##### <a name="-profile_hostbased_ssh--target--sshd_custom_config"></a>`sshd_custom_config`
+##### <a name="-profile_hostbased_ssh--target--sshd_match_config"></a>`sshd_match_config`
 
 Data type: `Hash`
 
