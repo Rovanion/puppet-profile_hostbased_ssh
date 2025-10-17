@@ -31,7 +31,7 @@
 #   include profile_hostbased_ssh::target
 class profile_hostbased_ssh::target (
   Array[String, 1] $sshd_match_nodelist,
-  Hash             $sshd_match_config,
+  Hash[String, String] $sshd_match_config,
   Hash[String, String] $sshd_global_config,
   Array[String]    $groups,
   Array[String]    $users,
