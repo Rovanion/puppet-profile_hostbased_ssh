@@ -30,11 +30,11 @@
 # @example
 #   include profile_hostbased_ssh::target
 class profile_hostbased_ssh::target (
-  Array[String, 1] $sshd_match_nodelist,
+  Array[String, 1]     $sshd_match_nodelist,
   Hash[String, String] $sshd_match_config,
   Hash[String, String] $sshd_global_config,
-  Array[String]    $groups,
-  Array[String]    $users,
+  Array[String]        $groups,
+  Array[String]        $users,
 ) {
   include profile_hostbased_ssh::known_hosts
   include profile_hostbased_ssh::shosts_equiv
